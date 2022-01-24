@@ -1,5 +1,9 @@
-**
-
+Lectures
+Collapse_cirricula
+build
+Makefile
+PRG.markdown
+README.markdown
 *.o
 *.so
 *.bin
