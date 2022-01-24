@@ -1,3 +1,5 @@
+**
+
 *.o
 *.so
 *.bin
@@ -16,3 +18,5 @@
 !.gitkeep
 !.gitignore
 !.clang-format
+!src
+!include
