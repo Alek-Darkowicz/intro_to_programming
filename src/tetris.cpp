@@ -10,7 +10,7 @@
 std::string shapes[7];
 
 //AREA SETTINGS
-int playfield_width = 18;
+int playfield_width = 12;
 int playfield_height = 18;
 unsigned char *playfield = nullptr;
 unsigned char *screen = nullptr;
