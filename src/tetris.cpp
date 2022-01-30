@@ -1,4 +1,5 @@
 #include <iostream>
+#include <random>
 #include <cstdlib>
 #include <string>
 #include <thread>
@@ -9,7 +10,7 @@
 std::string shapes[7];
 
 //AREA SETTINGS
-int playfield_width = 12;
+int playfield_width = 18;
 int playfield_height = 18;
 unsigned char *playfield = nullptr;
 unsigned char *screen = nullptr;
@@ -55,10 +56,10 @@ bool check_for_no_collision(int piece, int rotation_a, int piece_a, int piece_b)
     }
 	return true;
 }
-int current_piece = 2;
-int current_rotation = 0;
-int current_x = playfield_width / 2;
-int current_y = 0;
+int current_piece;
+int current_rotation;
+int current_x;
+int current_y;
 //DISPLAY
 auto print_screen() {
     //APPLY PIECE
@@ -310,7 +311,9 @@ print_screen();
                 if (current_lines.empty() == false)
                     score = score + (current_lines.size() * current_lines.size() * 25);
 //choose new piece - check
-                current_piece = rand() % 7;
+                std::random_device rd;
+                std::uniform_int_distribution<int> d7 (0, 6);
+                current_piece = d7(rd);
                 current_rotation = 0;
                 current_x = playfield_width / 2;
                 current_y = 0;
@@ -337,8 +340,8 @@ print_screen();
                 
                 game_speed = 0;
                 piece_count++;
-                if (piece_count % 25 == 0) {
-                    if (game_difficulty > 10) {
+                if (piece_count % 15 == 0) {
+                    if (game_difficulty > 5) {
                         game_difficulty--;
                     }
                 }
